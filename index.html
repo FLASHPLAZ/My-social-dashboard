@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <h1>Upload Your Image</h1>
+        <div class="upload-area">
+            <p>Drag and drop an image here or click the button below to upload.</p>
+            <button class="upload-btn">Upload Image</button>
+            <input type="file" class="file-input" accept="image/*" style="display: none;">
+        </div>
+        <div class="result">
+            <p>Your PNG link will appear here.</p>
+            <input type="text" class="result-link" readonly>
+        </div>
+    </div>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
