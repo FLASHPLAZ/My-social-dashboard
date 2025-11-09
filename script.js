@@ -3,6 +3,8 @@ const uploadBtn = document.querySelector('.upload-btn');
 const fileInput = document.querySelector('.file-input');
 const resultLink = document.querySelector('.result-link');
 
+const apiKey = 'a4e43f506a869b0dbecbd8411adb7bc0';
+
 if (uploadBtn && fileInput && uploadArea) {
     uploadBtn.addEventListener('click', () => {
         fileInput.click();
@@ -36,6 +38,11 @@ if (uploadBtn && fileInput && uploadArea) {
 
 
 function uploadImage(file) {
+    if (!apiKey) {
+        alert('API key is missing. Please configure the API key in script.js');
+        return;
+    }
+
     const formData = new FormData();
     formData.append('image', file);
 
@@ -51,17 +58,13 @@ function uploadImage(file) {
             }
             return data.data.url;
         } else {
-            if(typeof alert !== 'undefined') {
-                alert('Image upload failed. Please try again.');
-            }
+            alert('Image upload failed. Please try again.');
             throw new Error('Image upload failed');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        if(typeof alert !== 'undefined') {
-            alert('An error occurred during the upload. Please try again.');
-        }
+        alert('An error occurred during the upload. Please try again.');
         throw error;
     });
 }
